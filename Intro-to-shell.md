@@ -635,7 +635,7 @@ cat afghanistan.cc.txt vietnam.cc.txt
 We can use a wildcard to cat any file that matches a pattern. Let's try to cat every country file. What do they all have in common? Their file extension `.cc.txt`
 
 ```
-cat \*.cc.txt
+cat *.cc.txt
 ```
 
 The star is a wildcard and it acts as a placeholder for the file names.
@@ -765,4 +765,11 @@ This will show only the first column in the data, which is the country name.
 [Software Carpentry Navigating Files and Folder](https://swcarpentry.github.io/shell-novice/02-filedir/index.html)
 [Software Carpentry Working with Files and Directories](https://swcarpentry.github.io/shell-novice/03-create/index.html)
 
+
+### 10,20,50 most frequently used Unix commands
+http://www.informit.com/blogs/blog.aspx?b=2e1a39cd-e73b-4f8d-82f2-5f9b769132e1
+http://www-users.york.ac.uk/~hcb1/unix20.html
+https://www.thegeekstuff.com/2010/11/50-linux-commands/?utm_source=feedburner
+
+### Great command pipelines
 https://onceupon.github.io/Bash-Oneliner/
