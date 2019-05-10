@@ -26,6 +26,13 @@ MacOS is built on UNIX so it has a built-in command-line with all of the UNIX co
 
 Most versions of Linux come with bash by default.
 
+# Today's Topics
+
+| Shell Introduction |
+| ------------- |
+| Understanding the UNIX File System|
+| Exploring Files |
+| Manipulating Data with Command Pipelines|
 
 # UNIX File System structure
 
@@ -196,92 +203,52 @@ You can also go up levels `relative` to the current location.
 cd ../../..
 ```
 
+# Getting files for the Workshop
+
+We'll use the `git clone` command to pull some files down from the Internet. If you want to learn about version control using `git`, go to the workshop on Wednesday afternoon! For now, move to your home directory and then type this git command:
+
+```cd```
+```git clone ...```
+
+What do you see when you list your files now?
+
 # Working with Files and Directories
 
-We can create folders and files. Let's setup the directory structure that we will use for the rest of the workshop. It is going to look like this:
+We can create new directories and files. We have a Data directory that contains a .csv file and a subdirectory named 'gapminder_by_country'. Let's setup the rest of the directory structure that we will use for the workshop. It should look like this:
 
 ```
-SDC_02-23-2019
+~/ResBaz_UNIXIntro
     |
-    repository
+    Data
         |
-        thesis
-        analyses
-        data
-            |
-            original_data
-            processed_data
+        TopSpotify2017.csv
+        gapminder_by_country
+    |
+    GapminderAnalysis
+    SpotifyAnalysis
 ```
 
-Let's create the `SDC` folder withe `make directory` command.
+ We need to create the GapminderAnalysis and SpotifyAnalysis directories. First we need to move into the ResBaz_UNIXIntro directory, but we can use a shortcut called `Tab completion`. After typing `cd` (space), type 'Res' and then hit the Tab key. What happens?
 
 ```
-mkdir SDC_02-23-2019
+cd ResBaz_UNIXIntro/
 ```
 
-Now we can use `tab complete` to create the rest of the directories.
+Remember to use Tab to complete file and directory names. All you need is a unique prefix to start, and the shell will do the rest!
+
+Now let's create the `GapminderAnalysis` and `SpotifyAnalysis` folders with the `mkdir` (make directory) command.
 
 ```
-mkdir SDC_02-23-2019/repository
-mkdir SDC_02-23-2019/repository/thesis
-mkdir SDC_02-23-2019/repository/analyses
-mkdir SDC_02-23-2019/repository/data
+mkdir GapminderAnalysis
+mkdir SpotifyAnalysis
 ```
 
-```
-mkdir SDC_02-23-2019/repository/data/original_data
-mkdir SDC_02-23-2019/repository/data/processed_data
-```
-
-Let's go into the `SDC` directory. We will spend the rest of the workshop here.
-
-How do we get there?
-
-```
-cd SDC_02-23-2019
-```
-
-Also use File Explorer to drill into this folder. Do you see the sub-folders?
-
-Let's see what's in here. How do I list the files and folders under repository?
-
-```
-ls -la repository
-```
-
-Do you see the analyses and data folder?
-
-What is under data? How do I list it?
-
-> use the relative path
-
-```
-ls -la repository/data
-```
-
-> use the absolute path and the shortcut to home
-
-```
-ls -la ~/SDC_02-23-2019/repository/data
-```
-
-Do you see the directories? Were they the same for each path you used?
-
-LET'S REVIEW
-
-> Use `cd` to move around in the SDC folder. See if you can use relative and absolute paths to move around. Check where you are are `pwd`. Do you end up where you expected to be?
-
-When you are done playing around, make sure you are in the SDC repository folder.
-
-How do you do that?
-
-```
-cd ~/SDC_02-23-2019/repository
-```
+Use `cd` to move into the Data folder. Check where you are with `pwd`.
+What files and directories do you see in the Data folder? Do these match up with the structure of files listed above?
 
 ## ASSESSMENT
 
-How do I get to my home directory?
+How do I get back to my home directory?
 
 1) cd /
 2) cd ..
@@ -289,37 +256,36 @@ How do I get to my home directory?
 4) cd /home
 5) cd /Users/
 
+Now how do I get back into the ResBaz_UNIXIntro directory?
+
+```
+cd ~/ResBaz_UNIXIntro
+```
 
 ## Creating and Editing Files
 
-Let's create a file called. There are two ways of doing this.
-
-### use `nano`
-
-`nano` is a file editor like Notepad or the Mac equivalent.
-
-Let's use it to create a new file.
+Let's create a file called `README` using the `nano` text editor.
 
 ```
-nano thesis.txt
+nano README
 ```
 
 This will open `nano`.
 
-> Let's learn about nano. All of the nano commands are shown at the bottom of the window
+> All of the nano commands are shown at the bottom of the window
 
-Start typing in the nano window. You see text.
+Type this in the nano window: Spotify and gapminder data for learning UNIX.
 
-If you want to save, hit
-
-```
-Ctl + o
-```
-
-If you want to exit, hit
+To save the file, hold the Control (Ctrl) key and type the letter `o`, then answer the questions as prompted.
 
 ```
-Ctl + x
+Ctrl + o
+```
+
+To exit, use:
+
+```
+Ctrl + x
 ```
 
 Check to see if the file is there.
@@ -334,12 +300,12 @@ In File Explorer you can click and drag to move files around. We can move files 
 
 To move files we use the `mv` command. `mv` stands for `move`.
 
-Let's move thesis.txt into the thesis directory.
+Let's move the README file into the Data directory.
 
 To do this you use the `mv` command and tell it the `path to` and the `name of` the file you want to move and the path to the new location. You can use the relative or absolute path. Let's use the relative path.
 
 ```
-mv draft.txt thesis/
+mv README Data/
 ```
 
 What happened? Let's list the files.
@@ -348,36 +314,36 @@ What happened? Let's list the files.
 ls -la
 ```
 
-You don't see thesis.txt where you created it, but you should see it where you moved it.
+You don't see README where you created it, but you should see it where you moved it.
 
 ```
-ls -la thesis/
+ls -l Data
 ```
 
 > You can also use mv to rename files
 
-Let's rename thesis.txt to thesis_final.txt
+Let's rename README to README.txt
 
 ```
-mv thesis/draft.txt thesis/thesis_final.txt
+mv Data/README Data/README.txt
 ```
 
 ```
-ls -la thesis/
+ls -l Data
 ```
 
 You should see the new file name.
 
 ## Copying files
 
-Let's make a copy of thesis_final.txt. To do this you use the `cp` command.  Just like `mv`, you tell it the `path to` and the `name of` the file you want to move and the path to the new location. You can use the relative or absolute path. Let's use the relative path.
+Let's make a copy of the TopSpotify2017.csv file. To do this you use the `cp` command.  Just like `mv`, you tell it the `path to` and the `name of` the file you want to move and the path to the new location. You can use the relative or absolute path. Let's use the relative path.
 
 ```
-cp thesis/thesis_final.txt thesis/thesis_copy.txt
+cp Data/TopSpotify2017.csv Data/TopSpotify2017.csv.orig
 ```
 
 ```
-ls -la thesis
+ls -l Data
 ```
 
 Do you see your two files?
@@ -387,117 +353,24 @@ Do you see your two files?
 
 To delete a file we use the `rm` command. `rm` stands for `remove`.
 
-Let's try to delete draft.txt
-
-```
-rm thesis/thesis_copy.txt
-```
-
-What happened?
-
-```
-ls -la
-```
-
-You should not see thesis_copy.txt.
-
 > `rm` is forever. Files do not go in the recycle bin.
 
 ## ASSESSMENT
 
 I want to move a file from one location to another. What command do I use?
 
-1) mp
+1) move
 2) mv
 3) cp
-4) cv
+4) copy
 
-# Github and git and our source files
 
-We are going to be working with a number of data files for the rest of the workshop. We will get those from Github and we will use `git` to pull them down from Github.
+What if we want to copy an entire directory?
 
-Go to this link (it is in the Etherpad)
-
-> https://github.com/UA-Carpentries-Workshops/2019-02-23-WorkshopResources
-
-Go to the top right corner of the page where it says `Fork`
-
-Click `Fork`
-
-This will make a copy of our `repository` in your account.
-
-We will download a copy of the repository using `git clone`.
-
-> Make sure you are in the SDC directory, up one level from repository
+To copy a directory we need to use the `-R` option with the `cp` command. This tells the copy command that it needs to be `recursive`, meaning that it needs to dig through the directory. Try it:
 
 ```
-cd ~/SDC_02-23-2019
-```
-
-OR go up one level
-
-```
-cd ..
-```
-
-Check
-
-```
-pwd
-```
-
-Are you here?
-
-`SDC_02-23-2019`
-
-## git clone
-
-On your Github account's repository page, click the Big Green Button and then click the clipboard button. This will copy the URL of the files to your clipboard.
-
-Go back to the shell and type
-
-```
-git clone
-```
-
-and then paste the URL so that it looks like this
-
-```
-git clone https://github.com/UA-Carpentries-Workshops/2019-02-23-WorkshopResources
-```
-
-Hit enter.
-
-Some things happened. Once it is done, list the files and folder. Do you see a new directory?
-
-It is named the same as the name of the repository you cloned.
-
-List what is inside of that directory using the command `ls 2019-02-23-WorkshopResources`. Do you see the `shell-lessons` folder?
-
-Move into the `2019-02-23-WorkshopResources/shell-lessons` folder and run `ls` again. Do you see a `data` folder? This is the source data for our workshop.
-
-Let's prepare this data for our workshop by making a copy in the repository data folder we created earlier. First let's move back up to the `~/SDC_02-23-2019` folder:
-
-```
-cd ~/SDC_02-23-2019
-```
-
-## copy the cloned data files into the original_data folder
-
-What is the copy command?
-
-Let's try to guess how to copy. We did this earlier with a single file at a time, but we need the content of the data directory copied to the data/original_data directory.
-
-To copy a directory we need to use the `-r` option. This tells the copy command that it needs to be `recursive`, meaning that it needs to dig through the directory.
-
-```
-cp -r
-```
-
-We also need to tell the copy command what files to copy. To copy the contents of a directory we put in the path to the directory and add a *. This is the syntax that tells the cp command to get the contents but not the directory.
-
-```
-cp -r 2019-02-23-WorkshopResources/data/* repository/data/original_data/
+cp  -R  Data/gapminder_by_country  Data/gapminder_by_country.bak
 ```
 
 What was copied? List the contents of the original_data directory.
