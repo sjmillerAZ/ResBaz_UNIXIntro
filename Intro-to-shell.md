@@ -28,11 +28,12 @@ Most versions of Linux come with bash by default.
 
 # Today's Topics
 
-| Shell Introduction |
+| :Shell Introduction |
 | ------------- |
 | Understanding the UNIX File System|
 | Exploring Files |
 | Manipulating Data with Command Pipelines|
+| Other Useful Commands and Shortcuts |
 
 # UNIX File System structure
 
