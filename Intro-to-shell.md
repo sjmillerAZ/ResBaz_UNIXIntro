@@ -430,27 +430,48 @@ ls J*
 ```
 cat country.cc.txt J*
 ```
+
+Now let's save this output to a new file, in the GapminderAnalysis folder we created. We'll use the ">" (greater than symbol) for output redirection:
+
+```
+cat country.cc.txt J* > ../GapminderAnalysis/all_J.txt
+```
+
+You see that the ">" symbol causes output to be sent to a file rather than displayed on the screen. Why did we use ".." in the output path?
+
+# History
+
+A really helpful shell command is "history". What do you think it does? Try it! How can we save our command history to a file in our home directory?
+
+```
+history > ~/FirstDayUnix_history.text
+```
+
+Now if you need to go back to see commands you used, you have them conveniently saved!
+
 # Review
 
-Let's review what we've learned so far:
+Let's review what we've learned so far (10 commands and 5 shortcuts):
 
-| Command or Shortcut | What it Does |
+| Command | What it Does |
 | ------------- | ------------ |
 | ls -l | list files and directories (-l for long listing )|
 | man cmd | Show manual page for cmd |
 | pwd | show present working directory |
-| cd | change directory |
-| ~ | Home directory |
-| .. | Parent directory (one level up)|
-| Tab | Tab key for filename completion |
+| cd dest | change directory to destination |
 | mkdir | Make directory |
 | nano file | Open nano editor on file |
 | mv src dest | Move source file to destination |
 | cp src dest | Copy source file to destination |
-| cat file_list | Concatenate files in list and display contents on screen|
+| cat file1 file2 ... | Concatenate files in list and display contents on screen|
+| history | Output history of commands typed |
+
+| Shortcut | What it Does |
+| ~ | Home directory |
+| .. | Parent directory (one level up)|
+| Tab | Tab key for filename completion |
 | * | Wildcard to match any number of characters |
-
-
+| > file | Output redirect to file |
 
 ## tail and head
 
