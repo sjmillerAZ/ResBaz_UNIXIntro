@@ -442,10 +442,12 @@ Let's review what we've learned so far:
 | cd | change directory |
 | ~ | Home directory |
 | .. | Parent directory (one level up)|
+| Tab | Tab key for filename completion |
 | mkdir | Make directory |
 | nano file | Open nano editor on file |
 | mv src dest | Move source file to destination |
 | cp src dest | Copy source file to destination |
+| cat file_list | Concatenate files in list and display contents on screen|
 | * | Wildcard to match any number of characters |
 
 
