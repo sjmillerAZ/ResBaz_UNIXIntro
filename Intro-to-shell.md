@@ -28,7 +28,7 @@ Most versions of Linux come with bash by default.
 
 # Today's Topics
 
-| :Shell Introduction |
+| Shell Introduction |
 | ------------- |
 | Understanding the UNIX File System|
 | Exploring Files |
@@ -133,7 +133,7 @@ This shows all files and outputs the long format.
 
 ## Moving around
 
-In a File Explorer you can double-click on a folder to move into it and see its contents. In the shell, we use the `cd` command, short for `change directories`.
+In a File Explorer you can double-click on a folder to move into it and see its contents. In the shell, we use the `cd` command, short for `change directory`.
 
 On Windows:
 ```
@@ -144,7 +144,7 @@ and on Mac:
 man cd
 ```
 
-Here are two ways to `change directories`:
+Here are two ways to `change directory`:
 
 `cd` followed by a `path` to where you want to go. Remember to type a space after the `cd`:
 ```
@@ -215,7 +215,7 @@ What do you see when you list your files now?
 
 # Working with Files and Directories
 
-We can create new directories and files. We have a Data directory that contains a .csv file and a subdirectory named 'gapminder_by_country'. Let's setup the rest of the directory structure that we will use for the workshop. It should look like this:
+We will create some new directories and files. We have a Data directory that contains a .csv file and a subdirectory named 'gapminder_by_country'. Let's setup the rest of the directory structure that we will use for the workshop. It should look like this:
 
 ```
 ~/ResBaz_UNIXIntro
@@ -312,13 +312,14 @@ mv README Data/
 What happened? Let's list the files.
 
 ```
-ls -la
+ls -l
 ```
 
 You don't see README where you created it, but you should see it where you moved it.
 
 ```
-ls -l Data
+cd Data
+ls -l
 ```
 
 > You can also use mv to rename files
@@ -326,11 +327,11 @@ ls -l Data
 Let's rename README to README.txt
 
 ```
-mv Data/README Data/README.txt
+mv README README.txt
 ```
 
 ```
-ls -l Data
+ls -l
 ```
 
 You should see the new file name.
@@ -340,11 +341,11 @@ You should see the new file name.
 Let's make a copy of the TopSpotify2017.csv file. To do this you use the `cp` command.  Just like `mv`, you tell it the `path to` and the `name of` the file you want to move and the path to the new location. You can use the relative or absolute path. Let's use the relative path.
 
 ```
-cp Data/TopSpotify2017.csv Data/TopSpotify2017.csv.orig
+cp TopSpotify2017.csv TopSpotify2017.csv.bak
 ```
 
 ```
-ls -l Data
+ls -l
 ```
 
 Do you see your two files?
@@ -371,27 +372,22 @@ What if we want to copy an entire directory?
 To copy a directory we need to use the `-R` option with the `cp` command. This tells the copy command that it needs to be `recursive`, meaning that it needs to dig through the directory. Try it:
 
 ```
-cp  -R  Data/gapminder_by_country  Data/gapminder_by_country.bak
+cp  -R  gapminder_by_country  gapminder_by_country.bak
 ```
 
-What was copied? List the contents of the original_data directory.
+What was copied? List the contents of the original gapminder_by_country directory and the backup copy you created.
 
 ```
-ls -la repository/data/original_data
-```
-
-What is inside the gapminder_by_country directory?
-
-```
-ls -la repository/data/original_data/gapminder_by_country
+ls gapminder_by_country
+ls gapminder_by_country.bak
 ```
 
 That's a lot of files. Let's start working with them.
 
-But first change directories so you are in the `repository` folder.
+But first change directories so you are in the `gapminder_by_country` folder.
 
 ```
-cd repository
+cd gapminder_by_country
 ```
 
 ```
@@ -404,17 +400,55 @@ The gapminder study collected data on GDP and life expectancy over time for a bu
 
 # Output
 
-We don't need to use nano to see what is inside a file. We can send (output) the contents of a file to the screen. There are two commands we can use to do that. We wil start with `cat`.
+We don't need to use nano to see what is inside a file. We can send (output) the contents of a file to the screen. There are two commands we can use to do that. We will start with `cat` (short for concatenate).
 
 ## cat
 
 `cat` will output the entire contents of a file to the screen all at once. Let's see that in action.
 
 ```
-cat repository/data/original_data/gapminder_by_country/afghanistan.cc.txt
+cat Afghanistan.cc.txt
 ```
 
-What did you see?
+What did you see? To see a description of the data, use `cat` to show the contents of the file country.cc.txt:
+
+
+```
+cat country.cc.txt Afghanistan.cc.txt
+```
+
+Now do you understand why cat is short for concatenate?
+
+## Wildcard characters
+
+Suppose we wanted to see data for all the countries whose names begin with 'J'. We can use the "*" as a wildcard:
+
+```
+ls J*
+```
+
+```
+cat country.cc.txt J*
+```
+# Review
+
+Let's review what we've learned so far:
+
+| Command or Shortcut | What it Does |
+| ------------- | ------------ |
+| ls -l | list files and directories (-l for long listing )|
+| man cmd | Show manual page for cmd |
+| pwd | show present working directory |
+| cd | change directory |
+| ~ | Home directory |
+| .. | Parent directory (one level up)|
+| mkdir | Make directory |
+| nano file | Open nano editor on file |
+| mv src dest | Move source file to destination |
+| cp src dest | Copy source file to destination |
+| * | Wildcard to match any number of characters |
+
+
 
 ## tail and head
 
