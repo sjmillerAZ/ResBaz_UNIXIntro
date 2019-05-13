@@ -467,6 +467,7 @@ Let's review what we've learned so far (10 commands and 5 shortcuts):
 | history | Output history of commands typed |
 
 | Shortcut | What it Does |
+| ------------- | ------------ |
 | ~ | Home directory |
 | .. | Parent directory (one level up)|
 | Tab | Tab key for filename completion |
