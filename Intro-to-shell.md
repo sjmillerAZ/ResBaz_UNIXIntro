@@ -456,14 +456,14 @@ Let's review what we've learned so far (10 commands and 5 shortcuts):
 | Command | What it Does |
 | ------------- | ------------ |
 | ls -l | list files and directories (-l for long listing )|
-| man cmd | Show manual page for cmd |
+| man _cmd_ | Show manual page for _cmd_ |
 | pwd | show present working directory |
-| cd dest | change directory to destination |
-| mkdir | Make directory |
-| nano file | Open nano editor on file |
-| mv src dest | Move source file to destination |
-| cp src dest | Copy source file to destination |
-| cat file1 file2 ... | Concatenate files in list and display contents on screen|
+| cd _dest_ | change directory to _destination_ |
+| mkdir _dirname_ | Make directory named _dirname_ |
+| nano _file_ | Open nano editor on _file_ |
+| mv _src_ _dest_ | Move _source_ file to _destination_ |
+| cp _src_ _dest_ | Copy _source_ file to _destination_ |
+| cat _file1_ _file2_ ... | Concatenate _files_ in list and display contents on screen|
 | history | Output history of commands typed |
 
 | Shortcut | What it Does |
