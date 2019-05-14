@@ -208,10 +208,15 @@ cd ../../..
 
 We'll use the `git clone` command to pull some files down from the Internet. If you want to learn about version control using `git`, go to the workshop on Wednesday afternoon! For now, move to your home directory and then type this git command:
 
-```cd```
+```cd ~```
 ```git clone ...```
 
-What do you see when you list your files now?
+What do you see when you list your files now? Try this command:
+```
+ls -l Data
+```
+
+We can run `ls` on any directory by specifying that directory after any command options we want to use.
 
 # Working with Files and Directories
 
