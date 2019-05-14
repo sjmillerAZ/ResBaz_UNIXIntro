@@ -355,13 +355,6 @@ ls -l
 
 Do you see your two files?
 
-
-## Delete files and directories
-
-To delete a file we use the `rm` command. `rm` stands for `remove`.
-
-> `rm` is forever. Files do not go in the recycle bin.
-
 ## ASSESSMENT
 
 I want to move a file from one location to another. What command do I use?
@@ -426,14 +419,19 @@ Now do you understand why cat is short for concatenate?
 
 ## Wildcard characters
 
-Suppose we wanted to see data for all the countries whose names begin with 'J'. We can use the "*" as a wildcard:
+Suppose we wanted to see data for all the countries whose names begin with 'J'. If we knew ahead of time that these countries are Jamaica, Japan, and Jordan, we could use the command:
+```
+cat country.cc.txt Jamaica.cc.txt Japan.cc.txt Jordan.cc.txt
+```
+
+A better solution is to use the "*" as a wildcard:
 
 ```
-ls J*
+ls J*.cc.txt
 ```
 
 ```
-cat country.cc.txt J*
+cat country.cc.txt J*.cc.txt
 ```
 
 Now let's save this output to a new file, in the GapminderAnalysis folder we created. We'll use the ">" (greater than symbol) for output redirection:
@@ -509,115 +507,157 @@ Often we care more about number of lines than number of words or characters. Con
 wc -l J*.cc.txt
 ```
 
+How can we see if all of the gapminder_by_country files have the same number of lines?
+
+```
+wc -l *.cc.txt
+```
+
+Are all of the line counts the same?
+
+We'll see more uses for `wc` later. Now let's learn more commands for examining the contents of files.
+
 ## tail and head
 
-We can out put only parts of a file, too.
+We can output only parts of a file. This is particularly useful for files containing many lines.
 
 ### tail
 
-`tail` will output the last 10 lines in a file. Let's see what it does.
+`tail` will output the last 10 lines in a file, or any number of lines you request with an option. Let's see it in action:
 
 ```
-tail repository/data/original_data/gapminder_by_country/afghanistan.cc.txt
+tail Japan.cc.txt
+
+tail -2 Japan.cc.txt
 ```
 
-We see pretty much the same thing. But let's say we want to see the very last line. We can tell tail to do that.
+How could we view only the last line in the file?
 
 ```
-tail -1 repository/data/original_data/gapminder_by_country/afghanistan.cc.txt
+tail -1 Japan.cc.txt
 ```
 
-We could also see the last 2 lines
-
-```
-tail -2 repository/data/original_data/gapminder_by_country/afghanistan.cc.txt
-```
+Do you think there is a similar command for looking at lines at the beginning of a file?
 
 ### head
 
-`head` will output the first 10 lines in a file
+`head` will output the first 10 lines (or number specified with an option) of a file
 
 ```
-head repository/data/original_data/gapminder_by_country/afghanistan.cc.txt
+head Togo.cc.txt
+
+head -5 Togo.cc.txt
 ```
-
-And we can tell it how many lines like `tail`.
-
-```
-head -1 repository/data/original_data/gapminder_by_country/afghanistan.cc.txt
-```
-
-```
-head -2 repository/data/original_data/gapminder_by_country/afghanistan.cc.txt
-```
-
-
-
-
 
 Let's answer a question.
 
-> What was the GDP in 2007?
+> What was the GDP for Togo in 2002?
 
-## Get only the rows for year 2007
+## Get only the rows for year 2002
 
-We only want to look at the data for 2007. This means we need to filter our data. We have a command for that called `grep`.
+We could use `tail -2 Togo.cc.txt` but that also shows data for 2007.
 
-`grep` works on a file or output and takes a pattern to search on.
+If we only want to look at the data for 2002 we need to filter our data. There is a command for that called `grep` (short for 'get regular expression and print', in case you were wondering!).
 
-```
-grep 2007 all_countries.txt
-```
+`grep` works on a list of files and takes a pattern to search on.
 
 ```
-grep "\b2007\b" all_countries.txt
+grep 2002 J*.cc.txt
 ```
 
-These two options give us different results. What does the "word boundary" do?
-
-Let's make this output into a file. What command do we add?
+Some remarks about `grep`: it only reports lines that contain one or more instances of the pattern given to it. Run this command and see if you can explain the outout:
 
 ```
-grep "\b2007\b" all_countries.txt > 2007_gdp.txt
+grep 2007 P*.cc.text
 ```
 
-## pipe
-
-Let's look at the line count for each of these grep commands. To do this we can combine commands into a pipeline of commands for a final output. To do this we use the `|` character. Let's country the grep output.
-
-```
-grep 2007 all_countries.txt | wc -l
-```
+Why do we see a line of data for 2002?
+We can create a more specific pattern for grep by including "word boundaries". We use the backslash character with the letter b, as follows:
 
 ```
-grep "\b2007\b" all_countries.txt | wc -l
+grep "\b2007\b" P*.cc.txt
+```
+
+Do you see what the "word boundary" does?
+
+Let's save this output into a file up in the GapminderAnalysis directory. What do we need to add to the command?
+
+```
+grep "\b2007\b" P*.cc.txt > ../GapminderAnalysis/allP_2007.txt
+```
+
+## Command Pipelines
+
+Let's look at another way to compare the output of the `grep` commands with and without word boundaries in the pattern. To do this we can send the output of the `grep` command into the input of the `wc` command. This is called a _command pipeline_, and it allows us to chain commands together to create more powerful tools. To do this chaining or pipelining we use the `|` character. (It's often just above the Return or Enter key.) Let's count lines in the grep outputs:
+
+```
+grep 2007 P*.cc.txt | wc -l
+```
+
+```
+grep "\b2007\b" P*.cc.txt | wc -l
 ```
 
 Notice that the counts are different.
 
 ## sort
 
-We can sort the data too. Let's sort in reverse alpha order.
+We can sort data too. Let's sort in reverse alphabetical order.
 
 ```
-grep "\b2007\b" all_countries.txt | sort -r
+grep "\b2007\b" P*.cc.txt | sort -r
 ```
 
-### more chaining
+Do you see that the country names are in reverse alpha order?
 
-Get the top 10 lines
+### More chaining
+
+We can chain together as many commands as we want with pipelines. What command could we add to the above pipeline to see only the data for the first 3 countries in reverse alphabetical order?
 
 ```
-grep "\b2007\b" all_countries.txt | sort -r | head
+grep "\b2007\b" P*.cc.txt | sort -r | head -3
 ```
+
+What if we only want to see the country names?
 
 ## cut (show only the columns you tell it to show)
 
 ```
-grep "\b2007\b" all_countries.txt | sort -r | head | cut -f1
+grep "\b2007\b" P*.cc.txt | sort -r | head -3 | cut -f 1
 ```
 
-This will show only the first column in the data, which is the country name.
+This will show only the first column in the data, which is the country name. The -f option is short for 'fields'.
+
+What will we see if we run this command?
+
+``
+grep "\b2007\b" P*.cc.txt | sort -r | head -3 | cut -f 1,4
+```
+
+Hopefully you are starting to see how to combine commands to do very useful things!
+
+### More counting with `wc`
+
+Using `ls` and `wc`, how can we tell how many countries we have gapminder data for?
+
+```
+ls | wc -l
+```
+
+## Working with large filesystem
+
+
+## Deleting files and directories
+
+To delete a file we use the `rm` command. `rm` stands for `remove`.
+
+> `rm` is forever. Files do not go in the recycle bin.
+
+You can remove a directory by using the -rf (recursive and force options):
+```
+rm -rf gapminder_by_country.bak
+```
+_Be especially cautious when using wildcards with the `rm` command (or don't use wildcards with rm)! You could potentially remove ALL of your files unintentionally, with no way to retrieve them unless they are backed up elsewhere._
 
 ## Other Resources
 
