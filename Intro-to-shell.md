@@ -91,9 +91,9 @@ and on Mac you can use:
 man ls
 ```
 
-(Notice that we always type a space after the command name.) What did you see? A description and lots of options? Great.
+(Notice that we _always_ type a space after the command name.) What did you see? A description and lots of options? Great.
 
-Let's try one of the options.
+Let's try one of the options. These are typically one letter or digit codes that alter the default behavior of the command.
 
 ```
 ls -l
@@ -115,7 +115,7 @@ Try them both. See the difference?
 
 This is called the `long` format, hence `-l`.
 
-Sometimes there are hidden files and folders. These start with a `.`. `ls` won't show hidden things unless you give the -a option.
+Sometimes there are hidden files and folders. These start with a `.`. `ls` won't show hidden things unless you give the -a option. Do be careful with hidden files and folders - if they are altered without retaining proper formats, this could prevent other software from working correctly. The files are "hidden" to reduce the likelihood that they are accidentally modified.
 
 ```
 ls -a
@@ -131,7 +131,7 @@ This shows all files and outputs the long format.
 
 > REMEMBER: You can combine options for any of the shell commands that have options.
 
-## Moving around
+## Moving around the File System
 
 In a File Explorer you can double-click on a folder to move into it and see its contents. In the shell, we use the `cd` command, short for `change directory`.
 
@@ -169,14 +169,14 @@ There is a shortcut for returning to the `home` directory.
 cd ~
 ```
 
-If you ever get lost and need to get back home, use the above command. Try it now and then list the files.
+If you get lost and need to get back home, use the above command. Try it now and then list the files.
 
 ```
 cd ~
-ls -la
+ls -l
 ```
 
-Do you see the same thing you did before?
+Do you see the same files you did before?
 
 ## Absolute paths and relative paths
 
@@ -292,7 +292,7 @@ Ctrl + x
 Check to see if the file is there.
 
 ```
-ls -la
+ls -l
 ```
 
 # Moving files around
@@ -362,14 +362,14 @@ To delete a file we use the `rm` command. `rm` stands for `remove`.
 I want to move a file from one location to another. What command do I use?
 
 1) move
-2) mv
-3) cp
-4) copy
+2) Copy
+3) mv
+4) cp
 
 
-What if we want to copy an entire directory?
+What if we want to make a copy of an entire directory?
 
-To copy a directory we need to use the `-R` option with the `cp` command. This tells the copy command that it needs to be `recursive`, meaning that it needs to dig through the directory. Try it:
+To copy a directory we need to use the `-R` option with the `cp` command. This tells the copy command that it needs to be `recursive`, meaning that it needs to dig through all of the subdirectories and files in the directory. Try it:
 
 ```
 cp  -R  gapminder_by_country  gapminder_by_country.bak
@@ -444,7 +444,7 @@ You see that the ">" symbol causes output to be sent to a file rather than displ
 A really helpful shell command is "history". What do you think it does? Try it! How can we save our command history to a file in our home directory?
 
 ```
-history > ~/FirstDayUnix_history.text
+history > ~/FirstDayUnix_history.txt
 ```
 
 Now if you need to go back to see commands you used, you have them conveniently saved!
@@ -472,8 +472,23 @@ Let's review what we've learned so far (10 commands and 5 shortcuts):
 | .. | Parent directory (one level up)|
 | Tab | Tab key for filename completion |
 | * | Wildcard to match any number of characters |
-| > file | Output redirect to file |
+| > _file_ | Output redirect to _file_ |
 
+## word and line count
+
+`wc` will count the number of words or lines in a files
+
+> From the help: Print newline, word, and byte counts
+
+```
+wc repository/data/original_data/gapminder_by_country/afghanistan.cc.txt
+```
+
+How many lines do we expect to see?
+
+```
+wc -l repository/data/original_data/gapminder_by_country/afghanistan.cc.txt
+```
 ## tail and head
 
 We can out put only parts of a file, too.
@@ -516,21 +531,6 @@ head -1 repository/data/original_data/gapminder_by_country/afghanistan.cc.txt
 head -2 repository/data/original_data/gapminder_by_country/afghanistan.cc.txt
 ```
 
-## word and line count
-
-`wc` will count the number of words or lines in a files
-
-> From the help: Print newline, word, and byte counts
-
-```
-wc repository/data/original_data/gapminder_by_country/afghanistan.cc.txt
-```
-
-How many lines do we expect to see?
-
-```
-wc -l repository/data/original_data/gapminder_by_country/afghanistan.cc.txt
-```
 
 # One gapminder file
 
