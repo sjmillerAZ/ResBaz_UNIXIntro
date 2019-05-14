@@ -401,7 +401,7 @@ pwd
 
 ## Gapminder
 
-The gapminder study collected data on GDP and life expectancy over time for a bunch of countries. In the gapminder_by_country you see all of the countries with their GDP data. Let's look at one of them.
+The gapminder study collected data on GDP and life expectancy over time for many countries. In the gapminder_by_country directory you see all of the files for countries with GDP data. Let's look at one of them.
 
 # Output
 
@@ -412,14 +412,14 @@ We don't need to use nano to see what is inside a file. We can send (output) the
 `cat` will output the entire contents of a file to the screen all at once. Let's see that in action.
 
 ```
-cat Afghanistan.cc.txt
+cat Japan.cc.txt
 ```
 
 What did you see? To see a description of the data, use `cat` to show the contents of the file country.cc.txt:
 
 
 ```
-cat country.cc.txt Afghanistan.cc.txt
+cat country.cc.txt Japan.cc.txt
 ```
 
 Now do you understand why cat is short for concatenate?
@@ -444,6 +444,8 @@ cat country.cc.txt J* > ../GapminderAnalysis/all_J.txt
 
 You see that the ">" symbol causes output to be sent to a file rather than displayed on the screen. Why did we use ".." in the output path?
 
+_Be careful when using ">" for output redirection - if the file you are redirecting to already exists, its content will be overwritten! You can append data to the end of an existing file by using the ">>" output redirection._
+
 # History
 
 A really helpful shell command is "history". What do you think it does? Try it! How can we save our command history to a file in our home directory?
@@ -452,7 +454,7 @@ A really helpful shell command is "history". What do you think it does? Try it! 
 history > ~/FirstDayUnix_history.txt
 ```
 
-Now if you need to go back to see commands you used, you have them conveniently saved!
+Now if you need to go back to see commands you used, you have them conveniently saved! What commands can you use to see what is in the file you just created?
 
 # Review
 
@@ -479,21 +481,34 @@ Let's review what we've learned so far (10 commands and 5 shortcuts):
 | * | Wildcard to match any number of characters |
 | > _file_ | Output redirect to _file_ |
 
-## word and line count
+# word and line count
 
-`wc` will count the number of words or lines in a files
+You may be familiar with text or document editors that will show you a count of the number of lines, words, and characters in a file. Now we'll see how to get that information from the command line.
+
+`wc` will count the number of words, lines, and characters in a file.
 
 > From the help: Print newline, word, and byte counts
 
-```
-wc repository/data/original_data/gapminder_by_country/afghanistan.cc.txt
-```
-
-How many lines do we expect to see?
+Let's try this on some gapminder_by_country txt files (and remember to use Tab to complete parts of the file path):
 
 ```
-wc -l repository/data/original_data/gapminder_by_country/afghanistan.cc.txt
+cd ~/ResBaz_UNIXIntro/Data/gapminder_by_country
+wc Japan.cc.txt
 ```
+We can also use a wildcard with wc (or any command that can operate on a list of files):
+
+```
+wc J*.cc.text
+```
+
+How many lines are in each country file?
+
+Often we care more about number of lines than number of words or characters. Conveniently, `wc` has an option to show ONLY the line count:
+
+```
+wc -l J*.cc.txt
+```
+
 ## tail and head
 
 We can out put only parts of a file, too.
@@ -537,100 +552,8 @@ head -2 repository/data/original_data/gapminder_by_country/afghanistan.cc.txt
 ```
 
 
-# One gapminder file
 
-Let's use what we have learned to create one big Gapminder data file. First let's change into the original_data directory for the sake of shorter commands.
 
-```
-cd repository/data/original_data/gapminder_by_country/
-```
-
-```
-cat country.cc.txt
-```
-
-This is the file with the headers of the data in each country file. Each country does not have a header, but we want our `one file to rule them all` to have a header.
-
-Rename the country file to header.cc.txt. How do you do that?
-
-```
-mv country.cc.txt header.txt
-```
-
-Did that work?
-
-```
-cat header.txt
-```
-
-We can `cat` more than one file at a time. Let's try that.
-
-```
-cat afghanistan.cc.txt vietnam.cc.txt
-```
-
-We can use a wildcard to cat any file that matches a pattern. Let's try to cat every country file. What do they all have in common? Their file extension `.cc.txt`
-
-```
-cat *.cc.txt
-```
-
-The star is a wildcard and it acts as a placeholder for the file names.
-
-That was a lot of stuff that went by really fast. What if I want to checkout the file? We can use a command that will paginate the output for us. Let's try it.
-
-```
-cat *.cc.txt | less
-```
-
-The only problem here is that we don't have the headers. So we need to cat the country files with the header file. We want the header first. How would we do that?
-
-```
-cat header.txt *.cc.txt
-```
-
-This make a lot of output. What can we do with it?
-
-## output redirect
-
-We can create a new file using a output redirect commands.
-
-`>>` will create a new file or append the existing file
-`>` will create a new file or overwrite the contents to the existing file
-
-```
-cat header.txt *.cc.txt >> ../../processed_data/all_countries.txt
-```
-
-## check the file
-
-Let's go where we outputted the file
-
-```
-cd ../../processed_data/
-```
-
-If the commands worked you should see 1705 lines. How do we count the lines?
-
-```
-wc -l all_countries.txt
-```
-
-Let's look at the top 10 lines
-
-```
-head all_countries.txt
-```
-
-And the last 10 lines?
-
-```
-tail all_countries.txt
-```
-
-# Process the data
-
-[Software Carpentry Pipes and Filters](http://swcarpentry.github.io/shell-novice/04-pipefilter/index.html)
 
 Let's answer a question.
 
@@ -699,14 +622,19 @@ This will show only the first column in the data, which is the country name.
 ## Other Resources
 
 [Software Carpentry Intro to Shell](https://swcarpentry.github.io/shell-novice/01-intro/index.html)
-[Software Carpentry Navigating Files and Folder](https://swcarpentry.github.io/shell-novice/02-filedir/index.html)
+[Software Carpentry Navigating Files and Folders](https://swcarpentry.github.io/shell-novice/02-filedir/index.html)
 [Software Carpentry Working with Files and Directories](https://swcarpentry.github.io/shell-novice/03-create/index.html)
+[Software Carpentry Pipes and Filters](http://swcarpentry.github.io/shell-novice/04-pipefilter/index.html)
 
 
 ### 10,20,50 most frequently used Unix commands
 http://www.informit.com/blogs/blog.aspx?b=2e1a39cd-e73b-4f8d-82f2-5f9b769132e1
 http://www-users.york.ac.uk/~hcb1/unix20.html
 https://www.thegeekstuff.com/2010/11/50-linux-commands/?utm_source=feedburner
+
+### Useful tools
+https://explainshell.com/
+https://itsfoss.com/tldr-linux-man-pages-simplified/
 
 ### Great command pipelines
 https://onceupon.github.io/Bash-Oneliner/
