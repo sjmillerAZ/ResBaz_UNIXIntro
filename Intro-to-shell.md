@@ -2,7 +2,7 @@
 
 # Getting started
 
-* Open `Terminal` or `git bash` and enter `nano` to make sure you have `nano` installed.
+* Open `Terminal` or `git bash` and type `nano` to make sure you have the `nano` editor installed.
 
 ## What is the shell?
 
@@ -460,7 +460,7 @@ Let's review what we've learned so far (10 commands and 5 shortcuts):
 
 | Command | What it Does |
 | ------------- | ------------ |
-| ls -l | list files and directories (-l for long listing )|
+| ls -l \[_dir_\]| list files and directories in _dir_ (or current dir)(-l for long listing )|
 | man _cmd_ | Show manual page for _cmd_ |
 | pwd | show present working directory |
 | cd _dest_ | change directory to _destination_ |
