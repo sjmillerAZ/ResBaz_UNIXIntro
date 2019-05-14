@@ -479,7 +479,9 @@ Let's review what we've learned so far (10 commands and 5 shortcuts):
 | * | Wildcard to match any number of characters |
 | > _file_ | Output redirect to _file_ |
 
-# word and line count
+# Exploring Data
+
+## word and line count
 
 You may be familiar with text or document editors that will show you a count of the number of lines, words, and characters in a file. Now we'll see how to get that information from the command line.
 
@@ -507,13 +509,17 @@ Often we care more about number of lines than number of words or characters. Con
 wc -l J*.cc.txt
 ```
 
-How can we see if all of the gapminder_by_country files have the same number of lines?
+How can we see if ALL of the gapminder_by_country files have the same number of lines?
 
 ```
 wc -l *.cc.txt
 ```
 
-Are all of the line counts the same?
+Are all of the line counts the same? What does this suggest about the country.cc.txt file? How can we display the contents of country.cc.txt?
+
+```
+cat country.cc.txt
+```
 
 We'll see more uses for `wc` later. Now let's learn more commands for examining the contents of files.
 
@@ -537,29 +543,29 @@ How could we view only the last line in the file?
 tail -1 Japan.cc.txt
 ```
 
-Do you think there is a similar command for looking at lines at the beginning of a file?
+Similar to `tail` for looking at lines at the end of a file, there is a command for looking at lines at the beginning of a file.
 
 ### head
 
-`head` will output the first 10 lines (or number specified with an option) of a file
+`head` will output the first 10 lines (or a number of lines specified with an option) of a file
 
 ```
-head Togo.cc.txt
+head Japan.cc.txt
 
-head -5 Togo.cc.txt
+head -5 Japan.cc.txt
 ```
 
 Let's answer a question.
 
-> What was the GDP for Togo in 2002?
+> What was the GDP for Japan in 2002?
 
-## Get only the rows for year 2002
+## Getting data for year 2002
 
-We could use `tail -2 Togo.cc.txt` but that also shows data for 2007.
+We could use `tail -2 Japan.cc.txt` but that also shows data for 2007.
 
 If we only want to look at the data for 2002 we need to filter our data. There is a command for that called `grep` (short for 'get regular expression and print', in case you were wondering!).
 
-`grep` works on a list of files and takes a pattern to search on.
+`grep` works on a list of files and takes a pattern to search for. The pattern is specified first, followed by a list of files:
 
 ```
 grep 2002 J*.cc.txt
