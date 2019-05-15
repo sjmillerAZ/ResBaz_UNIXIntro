@@ -786,7 +786,7 @@ Let's review what we've learned in the 2nd half of the workshop (9 more commands
 | Shortcut or Shell Feature | What it Does |
 | ------------- | ------------ |
 | \| | Send output of one command to input of the next command |
-
+| Ctrl-C | Interrupt a running program, command, or pipeline |
 
 
 ## Homework!
