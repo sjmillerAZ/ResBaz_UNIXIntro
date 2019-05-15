@@ -2,7 +2,7 @@
 
 # Getting started
 
-* Open `Terminal` or `git bash` and type `nano` to make sure you have the `nano` editor installed.
+* Open `Terminal` or `git bash` and type `which nano` into the Terminal window to make sure you have the `nano` editor installed.
 
 ## What is the shell?
 
@@ -209,14 +209,18 @@ cd ../../..
 We'll use the `git clone` command to pull some files down from the Internet. If you want to learn about version control using `git`, go to the workshop on Wednesday afternoon! For now, move to your home directory and then type this git command:
 
 ```cd ~```
-```git clone ...```
+```git clone https://github.com/sjmillerAZ/ResBaz_UNIXIntro```
 
-What do you see when you list your files now? Try this command:
+What do you see when you list your files now?
 ```
-ls -l Data
+ls -l
 ```
 
-We can run `ls` on any directory by specifying that directory after any command options we want to use.
+We can run `ls` on any directory by specifying that directory after any command options we want to use. For example:
+
+```
+ls -l ResBaz_UNIXIntro
+```
 
 # Working with Files and Directories
 
@@ -248,6 +252,8 @@ Now let's create the `GapminderAnalysis` and `SpotifyAnalysis` folders with the 
 mkdir GapminderAnalysis
 mkdir SpotifyAnalysis
 ```
+
+Use `ls` to verify that your bew directories have been created.
 
 Use `cd` to move into the Data folder. Check where you are with `pwd`.
 What files and directories do you see in the Data folder? Do these match up with the structure of files listed above?
@@ -437,10 +443,10 @@ cat country.cc.txt J*.cc.txt
 Now let's save this output to a new file, in the GapminderAnalysis folder we created. We'll use the ">" (greater than symbol) for output redirection:
 
 ```
-cat country.cc.txt J* > ../GapminderAnalysis/all_J.txt
+cat country.cc.txt J* > ../../GapminderAnalysis/all_J.txt
 ```
 
-You see that the ">" symbol causes output to be sent to a file rather than displayed on the screen. Why did we use ".." in the output path?
+You see that the ">" symbol causes output to be sent to a file rather than displayed on the screen. Why did we use "../.." in the output path?
 
 _Be careful when using ">" for output redirection - if the file you are redirecting to already exists, its content will be overwritten! You can append data to the end of an existing file by using the ">>" output redirection._
 
@@ -487,7 +493,7 @@ You may be familiar with text or document editors that will show you a count of 
 
 `wc` will count the number of words, lines, and characters in a file.
 
-> From the help: Print newline, word, and byte counts
+> From man/help: Print newline, word, and byte counts
 
 Let's try this on some gapminder_by_country txt files (and remember to use Tab to complete parts of the file path):
 
