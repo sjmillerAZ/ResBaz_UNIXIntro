@@ -660,7 +660,7 @@ This will show only the first column in the data, which is the country name. The
 
 What will we see if we run this command?
 
-``
+```
 grep "\b2007\b" P*.cc.txt | sort -r | head -3 | cut -f 1,4
 ```
 
