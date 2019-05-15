@@ -717,12 +717,12 @@ _Be especially cautious when using wildcards with the `rm` command (or don't use
 
 ## Remote login to other systems
 
-The `ssh` (secure shell) command allows you to login to another system on which you have an account. For example:
+The `ssh` (secure shell) command allows you to login to another system on which you have an account. For example, to login to the UA High Performance Computing systems:
 
 ```
-ssh myNetID@hpc.arizona.edu
+ssh _myNetID_@hpc.arizona.edu
 ```
-You'll be prompted for your password and 2-factor authentication. Once you've successfully logged in you can use the commands you've learned today. For more information about the UA High Performance Computing systems, attend the ResBaz workshop on Wednesday afternoon, or check the Events calendar at http://datascience.arizona.edu 
+You'll be prompted for your password and 2-factor authentication. Once you've successfully logged in you can use the commands you've learned today. For more information about the UA High Performance Computing systems, attend the ResBaz workshop on Wednesday afternoon, or check the Events calendar at http://datascience.arizona.edu
 
 ## More practice
 
