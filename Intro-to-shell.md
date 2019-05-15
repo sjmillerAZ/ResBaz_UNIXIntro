@@ -774,7 +774,7 @@ Let's review what we've learned in the 2nd half of the workshop (9 more commands
 | less _file_ | Show 1 screenful at a time from _file_ |
 | rm _file_ | Remove _file_ (DELETES PREMANENTLY!)|
 | rm -rf _dir_ | Remove _dir_ and all of its contents (DELETES PREMANENTLY!)|
-| ssh _machine_ | Remotely login to _machine_ usine secure shell |
+| ssh _destination_ | Remotely login to _destination_ system using secure shell |
 
 | Shortcut or Shell Feature | What it Does |
 | ------------- | ------------ |
@@ -784,7 +784,18 @@ Let's review what we've learned in the 2nd half of the workshop (9 more commands
 
 ## Homework!
 
-Look back at the earlier pipelines that use sort and cut.
+The `cut` command has another option, _-d_, to specify a column _delimiter_. How can you use `cut -d ','` with other `cut` options to extract the 'danceability' column from the TopSpotify2017.csv file? (Hint: which column number is 'danceability'?)
+
+Once you've been able to output the 'danceability' column, write a pipeline to do a numeric sort of that output.
+
+For a more advanced exercise, read the man page or help for the `sort` command to understand what this pipeline does:
+```
+cut -f 2-4 -d ',' TopSpotify2017.csv | sort -n -k 3 -t ','
+```
+
+## Wrapping up
+
+Today we've just scratched the surface of what's possible with UNIX commands. Be sure to practice and check out the resources below to improve your skills and productivity!
 
 ## Other Resources
 
