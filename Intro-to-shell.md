@@ -768,7 +768,7 @@ At this point you may want to run the history command and save it to the ~/First
 
 ## Review
 
-Let's review what we've learned in the 2nd half of the workshop (9 more commands and the pipeline feature):
+Let's review what we've learned in the 2nd half of the workshop (9 more commands and the pipeline and Ctrl-C features):
 
 | Command | What it Does |
 | ------------- | ------------ |
