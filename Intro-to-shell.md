@@ -208,8 +208,10 @@ cd ../../..
 
 We'll use the `git clone` command to pull some files down from the Internet. If you want to learn about version control using `git`, go to the workshop on Wednesday afternoon! For now, move to your home directory and then type this git command:
 
-```cd ~```
-```git clone https://github.com/sjmillerAZ/ResBaz_UNIXIntro```
+```
+cd ~
+git clone https://github.com/sjmillerAZ/ResBaz_UNIXIntro
+```
 
 What do you see when you list your files now?
 ```
@@ -707,6 +709,30 @@ You can remove a directory by using the -rf (recursive and force options):
 rm -rf gapminder_by_country.bak
 ```
 _Be especially cautious when using wildcards with the `rm` command (or don't use wildcards with rm)! You could potentially remove ALL of your files unintentionally, with no way to retrieve them unless they are backed up elsewhere._
+
+## Review
+
+Let's review what we've learned in the 2nd half of the workshop (8 more commands and the pipeline feature):
+
+| Command | What it Does |
+| ------------- | ------------ |
+| wc -l | count number of lines |
+| head _-n file_ | Show _n_ lines at the top of a file |
+| tail _-n file_ | Show _n_ lines at the end of a file |
+| grep _pattern file_ | output lines containing _pattern_ in _file_ |
+| sort _-nr file_ | sort lines (numerically and/or reverse order) in _file_ |
+| cut -f _n,m_ _file_ | Show columns _n_ and _m_ from _file_ |
+| less _file_ | Show 1 screenful at a time from _file_ |
+| rm _file_ | Remove _file_ (DELETES PREMANENTLY!)|
+| rm -rf _dir_ | Remove _dir_ and all of its contents (DELETES PREMANENTLY!)|
+
+| Shortcut or Shell Feature | What it Does |
+| ------------- | ------------ |
+| \| | Send output of one command to input of the next command |
+
+
+
+## Homework!
 
 ## Other Resources
 
