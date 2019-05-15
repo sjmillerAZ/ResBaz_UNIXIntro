@@ -61,15 +61,15 @@ What did you see? Does it look similar to what you saw in File Explorer?
 
 ## Where am I?
 
-Knowing where you are in the filesystem is harder on the command line, but we have a command to help.
+Knowing where you are in the filesystem is less obvious using the command line, but there is a command to help.
 
 ```
 pwd
 ```
 
-`pwd` stands for `present working directory` and it will tell you the `path` to where you are in the filesystem. It starts with the root.
+`pwd` stands for `present working directory` and it will tell you the `path` to where you are in the filesystem, beginning with the filesystem root.
 
-In UNIX this is `/` and in Windows this will likely be something like `C:\`.
+In UNIX the root is `/` and in Windows it will likely be something like `C:\`.
 
 What did you see? Does it look like the path you see in File Explorer?
 
@@ -109,9 +109,10 @@ Try them both. See the difference?
 
 `ls -l` shows us more details about the files:
 
+* d or - to indicate whether the file is a directory or not
 * permissions
 * last date modified (or created)
-* size
+* file size in bytes
 
 This is called the `long` format, hence `-l`.
 
