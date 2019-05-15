@@ -226,7 +226,7 @@ ls -l ResBaz_UNIXIntro
 
 # Working with Files and Directories
 
-We will create some new directories and files. We have a Data directory that contains a .csv file and a subdirectory named 'gapminder_by_country'. Let's setup the rest of the directory structure that we will use for the workshop. It should look like this:
+We will create some new directories and files. Beneath the ResBaz_UNIXIntro directory we have a Data directory that contains a .csv file and a subdirectory named 'gapminder_by_country'. Let's setup the rest of the directory structure that we will use for the workshop. It should look like this:
 
 ```
 ~/ResBaz_UNIXIntro
@@ -416,7 +416,7 @@ We don't need to use nano to see what is inside a file. We can send (output) the
 cat Japan.cc.txt
 ```
 
-What did you see? To see a description of the data, use `cat` to show the contents of the file country.cc.txt:
+What did you see? To see a description of the data, use `cat` to show the contents of the file country.cc.txt along with the data from Japan.cc.txt:
 
 
 ```
@@ -432,7 +432,7 @@ Suppose we wanted to see data for all the countries whose names begin with 'J'. 
 cat country.cc.txt Jamaica.cc.txt Japan.cc.txt Jordan.cc.txt
 ```
 
-A better solution is to use the "*" as a wildcard:
+A better solution is to use "*" as a wildcard:
 
 ```
 ls J*.cc.txt
@@ -442,7 +442,14 @@ ls J*.cc.txt
 cat country.cc.txt J*.cc.txt
 ```
 
-Now let's save this output to a new file, in the GapminderAnalysis folder we created. We'll use the ">" (greater than symbol) for output redirection:
+The "*" wildcard matches zero or more characters, and can be used without any preceeding or following characters:
+
+```
+ls *.cc.txt
+ls J*
+```
+
+Now let's save the outputs from the J countries into a new file, in the GapminderAnalysis folder we created. We'll use the ">" (greater than symbol) for _output redirection_:
 
 ```
 cat country.cc.txt J* > ../../GapminderAnalysis/all_J.txt
@@ -696,8 +703,6 @@ If you want to exit out of `less` you can type a 'q' or Ctrl-C. Exit out of less
 Now from the first screen of data, search with '/Sheer' and then type the character 'n'. What happens?
 
 
-
-
 ## Deleting files and directories
 
 To delete a file we use the `rm` command. `rm` stands for `remove`.
@@ -709,6 +714,42 @@ You can remove a directory by using the -rf (recursive and force options):
 rm -rf gapminder_by_country.bak
 ```
 _Be especially cautious when using wildcards with the `rm` command (or don't use wildcards with rm)! You could potentially remove ALL of your files unintentionally, with no way to retrieve them unless they are backed up elsewhere._
+
+## More pipeline practice
+
+Let's write a pipeline to save the first 50 lines of TopSpotify2017.csv to a file in the SpotifyAnalysis directory:
+
+```
+head -50 TopSpotify2017.csv > ../SpotifyAnalysis/Top50Spotify2017.csv
+```
+
+How would we count the number of lines in this new file to check whether we got what we intended?
+
+```
+wc -l ../SpotifyAnalysis/Top50Spotify2017.csv
+cat ../SpotifyAnalysis/Top50Spotify2017.csv | wc -l
+```
+
+We saw earlier that `ls` has many options. We can use this pipeline to see the most recently modified files:
+
+```
+ls -ltr | tail
+```
+
+This is a nice way to remind yourself where you left off!
+
+Some nice uses of `history`:
+
+```
+history | grep git
+```
+
+What about this?
+
+```
+history | grep grep
+```
+
 
 ## Review
 
