@@ -241,7 +241,7 @@ We will create some new directories and files. Beneath the ResBaz_UNIXIntro dire
     SpotifyAnalysis
 ```
 
- We need to create the GapminderAnalysis and SpotifyAnalysis directories. First we need to move into the ResBaz_UNIXIntro directory, but we can use a shortcut called `Tab completion`. After typing `cd` (space), type 'Res' and then hit the Tab key. What happens?
+ We need to create the GapminderAnalysis and SpotifyAnalysis directories. First we need to move into the ResBaz_UNIXIntro directory, and we can use a shortcut called `Tab completion`. After typing `cd` (space), type 'Res' and then hit the Tab key. What happens?
 
 ```
 cd ResBaz_UNIXIntro/
@@ -289,7 +289,8 @@ This will open `nano`.
 
 > All of the nano commands are shown at the bottom of the window
 
-Type this in the nano window: Spotify and gapminder data for learning UNIX.
+Type this sentence in the nano window:
+Spotify and gapminder data for learning UNIX.
 
 To save the file, hold the Control (Ctrl) key and type the letter `o`, then answer the questions as prompted.
 
@@ -348,11 +349,11 @@ mv README README.txt
 ls -l
 ```
 
-You should see the new file name.
+You should see the new file name. Remember that `mv` can be used to rename a file, as well as to move a file into a different directory.
 
 ## Copying files
 
-Let's make a copy of the TopSpotify2017.csv file. To do this you use the `cp` command.  Just like `mv`, you tell it the `path to` and the `name of` the file you want to move and the path to the new location. You can use the relative or absolute path. Let's use the relative path.
+Let's make a copy of the TopSpotify2017.csv file. To do this you use the `cp` command.  Just like `mv`, you tell it the `path to` and the `name of` the file you want to move and the `path to` the new location. You can use a relative or absolute path.
 
 ```
 cp TopSpotify2017.csv TopSpotify2017.csv.bak
@@ -391,7 +392,7 @@ ls gapminder_by_country.bak
 
 That's a lot of files. Let's start working with them.
 
-But first change directories so you are in the `gapminder_by_country` folder.
+First change directories so you are in the `gapminder_by_country` folder.
 
 ```
 cd gapminder_by_country
@@ -443,7 +444,7 @@ ls J*.cc.txt
 cat country.cc.txt J*.cc.txt
 ```
 
-The "*" wildcard matches zero or more characters, and can be used without any preceeding or following characters:
+The "*" wildcard matches zero or more characters, and can be used without preceding or following characters:
 
 ```
 ls *.cc.txt
@@ -759,6 +760,7 @@ What about this?
 history | grep grep
 ```
 
+At this point you may want to run the history command and save it to the ~/FirstDayUnix_history.txt file. Would it make sense to use ">" or ">>" to save our history now?
 
 ## Review
 
@@ -794,7 +796,7 @@ For a more advanced exercise, read the man page or help for the `sort` command t
 cut -f 2-4 -d ',' TopSpotify2017.csv | sort -n -k 3 -t ','
 ```
 
-## Wrapping up
+## Going Further
 
 Today we've just scratched the surface of what's possible with UNIX commands. Be sure to practice and check out the resources below to improve your skills and productivity!
 
