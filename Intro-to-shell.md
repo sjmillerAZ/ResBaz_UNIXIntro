@@ -664,7 +664,7 @@ What will we see if we run this command?
 grep "\b2007\b" P*.cc.txt | sort -r | head -3 | cut -f 1,4
 ```
 
-Hopefully you are starting to see how to combine commands to do very useful things!
+If you need to sort numerically, use the -n option with sort (and this can be used in combination with -r.) Hopefully you are starting to see how to combine commands to do very useful things!
 
 ### More counting with `wc`
 
@@ -688,7 +688,7 @@ How many lines are in the TopSpotify2017.csv file? What happens if we use the `c
 cat TopSpotify2017.csv
 ```
 
-When looking at longer files, the `less` command will show one screenful at a time, and allow you to jump around to different parts of a file or even search for patterns. (Why is it called `less`? Because it's based on an older command named `more` (short for one more screenful). That's funny, right?)
+When looking at longer files, the `less` command will show one screenful at a time, and allow you to jump around to different parts of a file or even search for patterns. (Why is it called `less`? Because it's based on an older command named `more` (short for one _more_ screenful). That's really funny, right?)
 
 ```
 less TopSpotify2017.csv
@@ -705,9 +705,9 @@ Now from the first screen of data, search with '/Sheer' and then type the charac
 
 ## Deleting files and directories
 
-To delete a file we use the `rm` command. `rm` stands for `remove`.
+To delete a file we use the `rm` command. `rm` is short for `remove`.
 
-> `rm` is forever. Files do not go in the recycle bin.
+> `rm` is forever. Files do not go in a recycle bin.
 
 You can remove a directory by using the -rf (recursive and force options):
 ```
@@ -715,9 +715,18 @@ rm -rf gapminder_by_country.bak
 ```
 _Be especially cautious when using wildcards with the `rm` command (or don't use wildcards with rm)! You could potentially remove ALL of your files unintentionally, with no way to retrieve them unless they are backed up elsewhere._
 
-## More pipeline practice
+## Remote login to other systems
 
-Let's write a pipeline to save the first 50 lines of TopSpotify2017.csv to a file in the SpotifyAnalysis directory:
+The `ssh` (secure shell) command allows you to login to another system on which you have an account. For example:
+
+```
+ssh myNetID@hpc.arizona.edu
+```
+You'll be prompted for your password and 2-factor authentication. Once you've successfully logged in you can use the commands you've learned today. For more information about the UA High Performance Computing systems, attend the ResBaz workshop on Wednesday afternoon, or check the Events calendar at http://datascience.arizona.edu 
+
+## More practice
+
+Let's write a command to save the first 50 lines of TopSpotify2017.csv to a file in the SpotifyAnalysis directory:
 
 ```
 head -50 TopSpotify2017.csv > ../SpotifyAnalysis/Top50Spotify2017.csv
@@ -727,7 +736,6 @@ How would we count the number of lines in this new file to check whether we got 
 
 ```
 wc -l ../SpotifyAnalysis/Top50Spotify2017.csv
-cat ../SpotifyAnalysis/Top50Spotify2017.csv | wc -l
 ```
 
 We saw earlier that `ls` has many options. We can use this pipeline to see the most recently modified files:
@@ -736,7 +744,7 @@ We saw earlier that `ls` has many options. We can use this pipeline to see the m
 ls -ltr | tail
 ```
 
-This is a nice way to remind yourself where you left off!
+This is a good way to remind yourself where you left off!
 
 Some nice uses of `history`:
 
@@ -753,7 +761,7 @@ history | grep grep
 
 ## Review
 
-Let's review what we've learned in the 2nd half of the workshop (8 more commands and the pipeline feature):
+Let's review what we've learned in the 2nd half of the workshop (9 more commands and the pipeline feature):
 
 | Command | What it Does |
 | ------------- | ------------ |
@@ -766,6 +774,7 @@ Let's review what we've learned in the 2nd half of the workshop (8 more commands
 | less _file_ | Show 1 screenful at a time from _file_ |
 | rm _file_ | Remove _file_ (DELETES PREMANENTLY!)|
 | rm -rf _dir_ | Remove _dir_ and all of its contents (DELETES PREMANENTLY!)|
+| ssh _machine_ | Remotely login to _machine_ usine secure shell |
 
 | Shortcut or Shell Feature | What it Does |
 | ------------- | ------------ |
@@ -774,6 +783,8 @@ Let's review what we've learned in the 2nd half of the workshop (8 more commands
 
 
 ## Homework!
+
+Look back at the earlier pipelines that use sort and cut.
 
 ## Other Resources
 
