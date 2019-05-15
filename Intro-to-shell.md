@@ -2,7 +2,7 @@
 
 # Getting started
 
-* Open `Terminal` or `git bash` and type `which nano` into the Terminal window to make sure you have the `nano` editor installed.
+* Open `Terminal` or `git bash` and type `which nano` (then hit the Enter or Return key to submit the command) into the Terminal window to make sure you have the `nano` editor installed. You should see something like '/bin/nano' or '/usr/bin/nano' on the screen.
 
 ## What is the shell?
 
@@ -253,7 +253,7 @@ mkdir GapminderAnalysis
 mkdir SpotifyAnalysis
 ```
 
-Use `ls` to verify that your bew directories have been created.
+Use `ls` to verify that your new directories have been created.
 
 Use `cd` to move into the Data folder. Check where you are with `pwd`.
 What files and directories do you see in the Data folder? Do these match up with the structure of files listed above?
@@ -462,7 +462,7 @@ Now if you need to go back to see commands you used, you have them conveniently 
 
 # Review
 
-Let's review what we've learned so far (10 commands and 5 shortcuts):
+Let's review what we've learned so far (10 commands and 7 shortcuts):
 
 | Command | What it Does |
 | ------------- | ------------ |
@@ -477,13 +477,15 @@ Let's review what we've learned so far (10 commands and 5 shortcuts):
 | cat _file1_ _file2_ ... | Concatenate _files_ in list and display contents on screen|
 | history | Output history of commands typed |
 
-| Shortcut | What it Does |
+| Shortcut or Shell Feature | What it Does |
 | ------------- | ------------ |
 | ~ | Home directory |
 | .. | Parent directory (one level up)|
 | Tab | Tab key for filename completion |
+| Up-Arrow | Retrieve previous command(s) |
 | * | Wildcard to match any number of characters |
-| > _file_ | Output redirect to _file_ |
+| > _file_ | Output redirect to create/overwrite _file_ |
+| >> _file_ | Output redirect to append to _file_ |
 
 # Exploring Data
 
@@ -614,7 +616,14 @@ Notice that the counts are different.
 
 ## sort
 
-We can sort data too. Let's sort in reverse alphabetical order.
+We can sort data too. Let's sort the grep output:
+
+
+```
+grep "\b2007\b" P*.cc.txt | sort
+```
+
+To sort in reverse alphabetical order:
 
 ```
 grep "\b2007\b" P*.cc.txt | sort -r
@@ -656,7 +665,35 @@ Using `ls` and `wc`, how can we tell how many countries we have gapminder data f
 ls | wc -l
 ```
 
-## Working with large filesystem
+## Working with large files
+
+Now we will explore the data in the TopSpotify2017.csv file. First we need to move up to the Data directory. What command will do that?
+
+```
+cd ..
+```
+
+How many lines are in the TopSpotify2017.csv file? What happens if we use the `cat` command to look at the file contents?
+
+```
+cat TopSpotify2017.csv
+```
+
+When looking at longer files, the `less` command will show one screenful at a time, and allow you to jump around to different parts of a file or even search for patterns. (Why is it called `less`? Because it's based on an older command named `more` (short for one more screenful). That's funny, right?)
+
+```
+less TopSpotify2017.csv
+```
+
+Hit the Space bar to see the next screen of data. Press Return or Enter to move down by a single line. Type the character 'b' (lower case) to go back up one screen.
+
+Let's look for an artist's name in the file. Type '/Sheer' and what happens?
+
+If you want to exit out of `less` you can type a 'q' or Ctrl-C. Exit out of less and run the command again.
+
+Now from the first screen of data, search with '/Sheer' and then type the character 'n'. What happens?
+
+
 
 
 ## Deleting files and directories
