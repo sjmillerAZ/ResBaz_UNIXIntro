@@ -726,6 +726,10 @@ ssh _myNetID_@hpc.arizona.edu
 ```
 You'll be prompted for your password and 2-factor authentication. Once you've successfully logged in you can use the commands you've learned today. For more information about the UA High Performance Computing systems, attend the ResBaz workshop on Wednesday afternoon, or check the Events calendar at http://datascience.arizona.edu
 
+## Getting Un-stuck
+
+It's not hard to end up in a situation where you are "stuck" if you forget to pass enough information to a command or pipeline. In such cases, Ctrl-C can usually get you out of trouble. Unlike in Windows, where Ctrl-C is a copy to the clipboard, in UNIX Ctrl-C will interrupt a running program or command. If you find that you are seeing an unusual prompt, or no prompt at all, you can try typing Ctrl-C to get back to the normal prompt. In the worst case you may need to end your Terminal session and start a fresh one, hoping that you have saved your work!
+
 ## More practice
 
 Let's write a command to save the first 50 lines of TopSpotify2017.csv to a file in the SpotifyAnalysis directory:
