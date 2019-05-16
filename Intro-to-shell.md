@@ -2,13 +2,15 @@
 
 ## Getting started
 
-* Open `Terminal` or `git bash` and type `which nano` (then hit the Enter or Return key to submit the command) into the Terminal window to make sure you have the `nano` editor installed. You should see something like '/bin/nano' or '/usr/bin/nano' on the screen.
+* Open `Terminal` or `git bash` and type `which nano` (then hit the Enter or Return key to submit the command) into the Terminal window to make sure you have the `nano` editor installed. You should see something like '/bin/nano' or '/usr/bin/nano' on the screen. If there is no output at all, it means you don't have nano properly installed.
 
 ## What is the shell?
 
 The shell is a program that interfaces with the Operating System to allow you to access and manipulate files and hardware devices. We are going to learn the most common commands and how we can combine them to automate repetitive tasks. The shell is also called a command-line interface because you type commands on a line like this:
 
 > ```$ ls -l```
+
+The `$` is not part of what you type - rather it is a 'command prompt' that indicates that the shell is waiting for you to type in a command. Nothing will happen until you press the Return or Enter key at the end of the command string. You may find that command prompts look different on different systems.
 
 There are several different shells. We will be using bash (Born Again Shell), which is very common on UNIX and Linux operating systems. One thing you'll notice is that many commands are abbreviations or shorthands for words or phrases. ****Commands and file names are case sensitive, and when you pass additional information to a command, you must always type a space after the command name.****
 
@@ -454,7 +456,7 @@ ls J*
 Now let's save the outputs from the J countries into a new file, in the GapminderAnalysis folder we created. We'll use the ">" (greater than symbol) for _output redirection_:
 
 ```
-cat country.cc.txt J* > ../../GapminderAnalysis/all_J.txt
+cat country.cc.txt J* > ../../GapminderAnalysis/subset.cc.txt
 ```
 
 You see that the ">" symbol causes output to be sent to a file rather than displayed on the screen. Why did we use "../.." in the output path?
