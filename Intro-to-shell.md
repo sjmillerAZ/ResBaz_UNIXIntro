@@ -590,7 +590,7 @@ If we only want to look at the data for 2002 we need to filter our data. There i
 grep 2002 J*.cc.txt
 ```
 
-Some remarks about `grep`: it only reports lines that contain one or more instances of the pattern given to it. Run this command and see if you can explain the outout:
+Some remarks about `grep`: it only reports lines that contain one or more instances of the pattern given to it. Run this command and see if you can explain the output:
 
 ```
 grep 2007 P*.cc.text
@@ -810,6 +810,9 @@ Today we've just scratched the surface of what's possible with UNIX commands. Be
 [Software Carpentry Navigating Files and Folders](https://swcarpentry.github.io/shell-novice/02-filedir/index.html)
 [Software Carpentry Working with Files and Directories](https://swcarpentry.github.io/shell-novice/03-create/index.html)
 [Software Carpentry Pipes and Filters](http://swcarpentry.github.io/shell-novice/04-pipefilter/index.html)
+
+### ssh
+http://blog.robertelder.org/what-is-ssh/
 
 
 ### 10,20,50 most frequently used Unix commands
