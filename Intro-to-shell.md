@@ -574,11 +574,13 @@ head Japan.cc.txt
 head -5 Japan.cc.txt
 ```
 
+## Searching for data
+
 Let's answer a question.
 
 > What was the GDP for Japan in 2002?
 
-## Getting data for year 2002
+### Getting data for year 2002
 
 We could use `tail -2 Japan.cc.txt` but that also shows data for 2007.
 
@@ -642,7 +644,7 @@ grep "\b2007\b" P*.cc.txt | sort -r
 
 Do you see that the country names are in reverse alpha order?
 
-### More comple pipelines
+### More complex pipelines
 
 We can chain together as many commands as we want with pipelines. What command could we add to the above pipeline to see only the data for the first 3 countries in reverse alphabetical order?
 
