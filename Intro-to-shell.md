@@ -1,6 +1,6 @@
 # Intro to UNIX Shell
 
-# Getting started
+## Getting started
 
 * Open `Terminal` or `git bash` and type `which nano` (then hit the Enter or Return key to submit the command) into the Terminal window to make sure you have the `nano` editor installed. You should see something like '/bin/nano' or '/usr/bin/nano' on the screen.
 
@@ -310,7 +310,7 @@ Check to see if the file is there.
 ls -l
 ```
 
-# Moving files around
+## Moving files around
 
 In File Explorer you can click and drag to move files around. We can move files using the shell too.
 
@@ -408,7 +408,7 @@ The gapminder study collected data on GDP and life expectancy over time for many
 
 # Output
 
-We don't need to use nano to see what is inside a file. We can send (output) the contents of a file to the screen. There are two commands we can use to do that. We will start with `cat` (short for concatenate).
+We don't need to use nano to see what is inside a file. We can send the contents of a file _(output)_ to the screen. One command we can use to do this is called `cat` (short for concatenate).
 
 ## cat
 
@@ -642,7 +642,7 @@ grep "\b2007\b" P*.cc.txt | sort -r
 
 Do you see that the country names are in reverse alpha order?
 
-### More chaining
+### More comple pipelines
 
 We can chain together as many commands as we want with pipelines. What command could we add to the above pipeline to see only the data for the first 3 countries in reverse alphabetical order?
 
@@ -813,7 +813,6 @@ Today we've just scratched the surface of what's possible with UNIX commands. Be
 
 ### ssh
 http://blog.robertelder.org/what-is-ssh/
-
 
 ### 10,20,50 most frequently used Unix commands
 http://www.informit.com/blogs/blog.aspx?b=2e1a39cd-e73b-4f8d-82f2-5f9b769132e1
