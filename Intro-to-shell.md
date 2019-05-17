@@ -735,7 +735,7 @@ _Be especially cautious when using wildcards with the `rm` command (or don't use
 
 ## Remote login to other systems
 
-The `ssh` (secure shell) command allows you to login to another system on which you have an account. For some systems you will need to install and run the Virtual Private Network (VPN) client from here: https://vpn.arizona.edu The VPN encrypts all of your transmissions, and allows you to access sites as if you were connected on a campus network (e.g. UA Library journal subscriptions.) After downloading and installing VPN, open it and connect to vpn.arizona.edu, entering your NetID password and dual-factor authentication credentials. Then, you can use `ssh` to login to the UA High Performance Computing systems:
+The `ssh` (secure shell) command allows you to login to another system on which you have an account. For access to some systems you will need to install and run the Virtual Private Network (VPN) client from here: https://vpn.arizona.edu. The VPN encrypts all of your transmissions, and allows you to access sites as if you were connected on a campus network (e.g. UA Library journal subscriptions.) After downloading and installing VPN, open it and connect to vpn.arizona.edu, entering your NetID password and dual-factor authentication credentials. Then, you can use `ssh` to login to the UA High Performance Computing systems:
 
 ```
 ssh _myNetID_@hpc.arizona.edu
@@ -834,11 +834,14 @@ http://blog.robertelder.org/what-is-ssh/
 
 ### 10,20,50 most frequently used Unix commands
 http://www.informit.com/blogs/blog.aspx?b=2e1a39cd-e73b-4f8d-82f2-5f9b769132e1
+
 http://www-users.york.ac.uk/~hcb1/unix20.html
+
 https://www.thegeekstuff.com/2010/11/50-linux-commands/?utm_source=feedburner
 
 ### Useful tools
 https://explainshell.com/
+
 https://itsfoss.com/tldr-linux-man-pages-simplified/
 
 ### Great command pipelines
