@@ -118,7 +118,7 @@ Try them both. See the difference?
 
 This is called the `long` format, hence `-l`.
 
-Sometimes there are hidden files and folders. These start with a `.`. `ls` won't show hidden things unless you give the -a option. Do be careful with hidden files and folders - if they are altered without retaining proper formats, this could prevent other software from working correctly. The files are "hidden" to reduce the likelihood that they are accidentally modified.
+Sometimes there are hidden files and folders. These start with a `.`. `ls` won't show hidden things unless you give the `-a` option. Do be careful with hidden files and folders - if they are altered without retaining proper formats, this could prevent other software from working correctly. The files are "hidden" to reduce the likelihood that they are accidentally modified.
 
 ```
 ls -a
@@ -273,7 +273,7 @@ How do I get back to my home directory?
 4) cd ~
 5) cd /home
 
-Now how do I get back into the ResBaz_UNIXIntro directory?
+How can I get back into the ResBaz_UNIXIntro directory that is a subdirectory of my home directory, no matter where I am currently in the file system?
 
 ```
 cd ~/ResBaz_UNIXIntro
@@ -294,7 +294,7 @@ This will open `nano`.
 Type this sentence in the nano window:
 Spotify and gapminder data for learning UNIX.
 
-To save the file, hold the Control (Ctrl) key and type the letter `o`, then answer the questions as prompted.
+To save the file, hold the Control (Ctrl) key and type the letter `o`, then answer the questions as prompted. This control-key sequence is sometimes written as Ctrl-O or simply ^O.
 
 ```
 Ctrl + o
