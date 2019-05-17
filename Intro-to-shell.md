@@ -824,13 +824,13 @@ Today we've just scratched the surface of what's possible with UNIX commands. Be
 
 ## Other Resources
 
-[Software Carpentry Intro to Shell](https://swcarpentry.github.io/shell-novice/01-intro/index.html
+[Software Carpentry Intro to Shell] https://swcarpentry.github.io/shell-novice/01-intro/index.html
 
-[Software Carpentry Navigating Files and Folders](https://swcarpentry.github.io/shell-novice/02-filedir/index.html)
+[Software Carpentry Navigating Files and Folders] https://swcarpentry.github.io/shell-novice/02-filedir/index.html
 
-[Software Carpentry Working with Files and Directories](https://swcarpentry.github.io/shell-novice/03-create/index.html)
+[Software Carpentry Working with Files and Directories] https://swcarpentry.github.io/shell-novice/03-create/index.html
 
-[Software Carpentry Pipes and Filters](http://swcarpentry.github.io/shell-novice/04-pipefilter/index.html)
+[Software Carpentry Pipes and Filters] http://swcarpentry.github.io/shell-novice/04-pipefilter/index.html
 
 ### ssh
 http://blog.robertelder.org/what-is-ssh/
