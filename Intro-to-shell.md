@@ -269,9 +269,9 @@ How do I get back to my home directory?
 
 1) cd /
 2) cd ..
-3) cd ~
-4) cd /home
-5) cd /Users/
+3) cd /Users/
+4) cd ~
+5) cd /home
 
 Now how do I get back into the ResBaz_UNIXIntro directory?
 
@@ -473,6 +473,16 @@ history > ~/FirstDayUnix_history.txt
 
 Now if you need to go back to see commands you used, you have them conveniently saved! What commands can you use to see what is in the file you just created?
 
+## ASSESSMENT
+
+I want to list all of the files in the present working directory that have names starting with 'A' and ending with '.dat'. What command do I use?
+
+1) ls A.dat
+2) ls A+.dat
+3) ls a*.dat
+4) ls A*.dat
+5) Either 3) or 4)
+
 # Review
 
 Let's review what we've learned so far (10 commands and 7 shortcuts):
@@ -672,13 +682,15 @@ grep "\b2007\b" P*.cc.txt | sort -r | head -3 | cut -f 1,4
 
 If you need to sort numerically, use the -n option with sort (and this can be used in combination with -r.) Hopefully you are starting to see how to combine commands to do very useful things!
 
-### More counting with `wc`
+## ASSESSMENT
 
-Using `ls` and `wc`, how can we tell how many countries we have gapminder data for?
+Assuming we're in the gapminder_by_country data directory, what command pipeline will give an estimate of how many countries we have gapminder data for?
 
-```
-ls | wc -l
-```
+1) wc -l *.cc.txt
+2) ls *.txt | wc -l
+3) ls | wc -l
+4) Either 2) or 3)
+5) None of the above
 
 ## Working with large files
 
@@ -723,12 +735,14 @@ _Be especially cautious when using wildcards with the `rm` command (or don't use
 
 ## Remote login to other systems
 
-The `ssh` (secure shell) command allows you to login to another system on which you have an account. For example, to login to the UA High Performance Computing systems:
+The `ssh` (secure shell) command allows you to login to another system on which you have an account. For some systems you will need to install and run the Virtual Private Network (VPN) client from here: https://vpn.arizona.edu The VPN encrypts all of your transmissions, and allows you to access sites as if you were connected on a campus network (e.g. UA Library journal subscriptions.) After downloading and installing VPN, open it and connect to vpn.arizona.edu, entering your NetID password and dual-factor authentication credentials. Then, you can use `ssh` to login to the UA High Performance Computing systems:
 
 ```
 ssh _myNetID_@hpc.arizona.edu
 ```
-You'll be prompted for your password and 2-factor authentication. Once you've successfully logged in you can use the commands you've learned today. For more information about the UA High Performance Computing systems, attend the ResBaz workshop on Wednesday afternoon, or check the Events calendar at http://datascience.arizona.edu
+You'll be prompted again for your password and 2-factor authentication. Once you've successfully logged in you can use the commands you've learned today. For more information about the UA High Performance Computing systems, attend the ResBaz workshop on Wednesday afternoon, or check the Events calendar at http://datascience.arizona.edu
+
+Remember to always logout of remote sessions once you're finished working!
 
 ## Getting Un-stuck
 
