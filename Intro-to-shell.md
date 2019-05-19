@@ -93,7 +93,7 @@ and on Mac you can use:
 man ls
 ```
 
-(Notice that we _always_ type a space after the command name.) What did you see? A description and lots of options? Great.
+(Notice that we _always_ type a space after the command name.) What did you see? A description and lots of options? Great. We can exit from the man page by typing 'q' (lower case.)
 
 Let's try one of the options. These are typically one letter or digit codes that alter the default behavior of the command.
 
@@ -138,15 +138,6 @@ This shows all files and outputs the long format.
 
 In a File Explorer you can double-click on a folder to move into it and see its contents. In the shell, we use the `cd` command, short for `change directory`.
 
-On Windows:
-```
-cd --help
-```
-and on Mac:
-```
-man cd
-```
-
 Here are two ways to `change directory`:
 
 `cd` followed by a `path` to where you want to go. Remember to type a space after the `cd`:
@@ -159,6 +150,7 @@ cd ..
 ```
 
 ### Going home
+
 We should currently be in the `home directory`. This is a location in the filesystem where your your personal files are stored by default, and where you are when you first open a terminal. The `home directory or folder` is a common operating system convention.
 
 On Windows this will be:
