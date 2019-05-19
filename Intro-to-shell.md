@@ -243,20 +243,7 @@ cd ResBaz_UNIXIntro/
 
 Remember to use Tab to complete file and directory names. All you need is a unique prefix to start, and the shell will do the rest!
 
-Now let's create the `GapminderAnalysis` and `SpotifyAnalysis` folders with the `mkdir` (make directory) command. First let's look at man or help for mkdir.
-
-On Mac:
-```
-man mkdir
-```
-
-and on Windows:
-```
-mkdir --help
-```
-
-Now let's make two new directories inside the ResBaz_UNIXIntro directory:
-
+Now let's create the `GapminderAnalysis` and `SpotifyAnalysis` folders with the `mkdir` (make directory) command.
 ```
 mkdir GapminderAnalysis
 mkdir SpotifyAnalysis
@@ -320,7 +307,17 @@ ls -l
 
 In File Explorer you can click and drag to move files around. We can move files using the shell too.
 
-To move files we use the `mv` command. `mv` stands for `move`.
+To move files we use the `mv` command. `mv` stands for `move`. Let's look at the man page or help for the `mv` command.
+
+On Mac:
+```
+man mv
+```
+
+On Windows:
+```
+mv --help
+```
 
 Let's move the README file into the Data directory.
 
