@@ -243,7 +243,19 @@ cd ResBaz_UNIXIntro/
 
 Remember to use Tab to complete file and directory names. All you need is a unique prefix to start, and the shell will do the rest!
 
-Now let's create the `GapminderAnalysis` and `SpotifyAnalysis` folders with the `mkdir` (make directory) command.
+Now let's create the `GapminderAnalysis` and `SpotifyAnalysis` folders with the `mkdir` (make directory) command. First let's look at man or help for mkdir.
+
+On Mac:
+```
+man mkdir
+```
+
+and on Windows:
+```
+mkdir --help
+```
+
+Now let's make two new directories inside the ResBaz_UNIXIntro directory:
 
 ```
 mkdir GapminderAnalysis
